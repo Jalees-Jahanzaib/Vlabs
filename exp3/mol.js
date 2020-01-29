@@ -1,3 +1,4 @@
+var x=1;
 $(function() {
   let element = $('#cont1');
   let config = { backgroundColor: 'orange' };
@@ -18,7 +19,13 @@ $(function() {
   viewer.addSphere({ center: {x:0, y:0, z:0}, radius: 2.0, color: 'skyblue',
   mid:1.0,   clickable:true,
   callback:function(){
-      this.color.setHex(0xFFFF3352);
+      console.log(x);
+      this.color.setHex(0xFFFF3352-x);
+      // document.querySelector(".cc").innerHTML="Chiral Center"
+      x+=100;
+      if(x>10000000000){
+        x=0;
+      }
       viewer.render( );
   }});
   viewer.addSphere({ center: {x:6, y:-6, z:-6}, radius: 2.0, color: 'white' });
